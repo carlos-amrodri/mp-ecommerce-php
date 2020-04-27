@@ -46,25 +46,70 @@
     <?php 
     require __DIR__ . '/vendor/autoload.php';
     // Agrega credenciales
-    MercadoPago\SDK::setAccessToken('TEST-3859466790724644-042521-bc6da3ccac0f62d2a0e4fdc89eb26de1-279293878');
+    MercadoPago\SDK::setAccessToken('APP_USR-4885476140826190-042703-152caa0cecfe71bf4985c5af751fded3-555263107');
 
        $price = $_POST['price'];
        $unit = $_POST['unit'];
        $model = $_POST['title'];
        $img = $_POST['img'];
        
-       // Crea un objeto de preferencia
+    // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item->title = $model;
+    $item->title = "Dispositivo móvil de Tienda e-commerce";
     $item->quantity = $unit;
     $item->unit_price = $price;
     $item->picture_url = "https://carlos-amrodri-mp-commerce-php.herokuapp.com/assets/003.jpg";
+    $item->currency_id = "ARS";
     $preference->items = array($item);
+    //Retorno
+    $payer = new MercadoPago\Payer();
+    $payer->name = "Lalo";
+    $payer->surname = "Landa";
+    $payer->email = "test_user_67384160@testuser.com";
+    $payer->phone = array(
+      "area_code" => "011",
+      "number" => "22223333"
+    );
+    
+    $payer->identification = array(
+      "type" => "DNI",
+      "number" => "22333444"
+    );
+    
+    $payer->address = array(
+      "street_name" => "Falsa",
+      "street_number" => 123,
+      "zip_code" => "1111"
+    );
+  
+  
+      $preference->back_urls = array(
+          "success" => "https://www.materialpalette.com",
+          "failure" => "http://fontawesome.com/icons?d=gallery",
+          "pending" => "http://getbootstrap.com/docs/4.1/getting-started/introduction/"
+      );
+      $preference->auto_return = "approved";
+      //Excluyo medios de pago
+      $preference->payment_methods = array(
+      "excluded_payment_methods" => array(
+          array("id" => "amex")
+      ),
+      "excluded_payment_types" => array(
+          array("id" => "atm")
+      ),
+      "installments" => 6
+      );
+  
+  
+  
+      $preference->notification_url = "https://en9tp6jokbgz.x.pipedream.net/";
+      $preference->external_reference = "ABCD1234";
+
     $preference->save();
-    ?>
+?>
     <div class="stack">
  
         <div class="as-search-wrapper" role="main">
@@ -152,12 +197,13 @@
                                             <?php echo "$" . $price ?>
                                         </h3>
                                     </div>
-                                    <form action="/procesar-pago" method="POST">
+                                    <form action="/procesar-pago" method="POST" >
                                         <script
-                                        src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-                                        data-preference-id="<?php echo $preference->id; ?>">
+                                            src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                            data-preference-id="<?php echo $preference->id; ?>"  data-elements-color="#2D3277" data-button-label="Pagar la compra">
                                         </script>
                                     </form>
+
                       <!--               <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
                                 </div>
                             </div>
