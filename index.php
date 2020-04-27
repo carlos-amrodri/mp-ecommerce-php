@@ -248,7 +248,7 @@
                                             <div class="as-producttile-title">
                                                 <h3 class="as-producttile-name">
                                                     <p class="as-producttile-tilelink">
-                                                        <span data-ase-truncate="2">Samsung Galaxy S90</span>
+                                                        <span data-ase-truncate="2">Samsung Galaxy S9</span>
                                                     </p>
 
                                                 </h3>
@@ -257,7 +257,7 @@
                                                 $15.000
                                             </div>
                                         </div>
-                                        <form action="/mp-ecommerce-php/detail.php" method="get">
+                                        <form action="/detail.php" method="get">
                                             <input type="hidden" name="img" value="./assets/samsung-galaxy-s9-xxl.jpg">
                                             <input type="hidden" name="title" value="Samsung Galaxy S9">
                                             <input type="hidden" name="price" value="15000">

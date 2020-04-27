@@ -43,8 +43,30 @@
 
 <body class="as-theme-light-heroimage">
 
+    <?php 
+    require __DIR__ . '/vendor/autoload.php';
+    // Agrega credenciales
+    MercadoPago\SDK::setAccessToken('TEST-3859466790724644-042521-bc6da3ccac0f62d2a0e4fdc89eb26de1-279293878');
+
+       $price = $_POST['price'];
+       $unit = $_POST['unit'];
+       $model = $_POST['title'];
+       $img = $_POST['img'];
+       
+       // Crea un objeto de preferencia
+    $preference = new MercadoPago\Preference();
+
+    // Crea un ítem en la preferencia
+    $item = new MercadoPago\Item();
+    $item->title = $model;
+    $item->quantity = $unit;
+    $item->unit_price = $price;
+    $item->picture_url = "https://carlos-amrodri-mp-commerce-php.herokuapp.com/assets/003.jpg";
+    $preference->items = array($item);
+    $preference->save();
+    ?>
     <div class="stack">
-        
+ 
         <div class="as-search-wrapper" role="main">
             <div class="as-navtuck-wrapper">
                 <div class="as-l-fullwidth  as-navtuck" data-events="event52">
@@ -100,7 +122,7 @@
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                                 <div class="as-tilegallery-element as-image-selected">
                                                     <div class=""></div>
-                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
+                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $img ?>) 2x);">
                                                 </div>
                                                 
                                             </div>
@@ -118,19 +140,25 @@
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
+                                                    <span data-ase-truncate="2"><?php echo $model ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo $_POST['price'] ?>
+                                            <?php echo $unit ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
+                                            <?php echo "$" . $price ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <form action="/procesar-pago" method="POST">
+                                        <script
+                                        src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+                                        data-preference-id="<?php echo $preference->id; ?>">
+                                        </script>
+                                    </form>
+                      <!--               <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
                                 </div>
                             </div>
                         </div>
