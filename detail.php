@@ -87,9 +87,9 @@
   
   
       $preference->back_urls = array(
-          "success" => "https://www.materialpalette.com",
-          "failure" => "http://fontawesome.com/icons?d=gallery",
-          "pending" => "http://getbootstrap.com/docs/4.1/getting-started/introduction/"
+          "success" => "https://carlos-amrodri-mp-commerce-php.herokuapp.com/succes.php",
+          "failure" => "https://carlos-amrodri-mp-commerce-php.herokuapp.com/failure.php",
+          "pending" => "https://carlos-amrodri-mp-commerce-php.herokuapp.com/pending.php"
       );
       $preference->auto_return = "approved";
       //Excluyo medios de pago
