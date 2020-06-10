@@ -12,12 +12,6 @@ $cuerpo = '
 <p> 
 <b>Bienvenidos a mi correo electrónico de prueba</b>. ESTOY PROBANDO DESDE HEROKU
 </p> 
-</br>
-<p>
-';
-echo "Simulo el json";
-'
-</p>
 </body> 
 </html> 
 '; 
