@@ -1,10 +1,7 @@
 <?php
-
-
-
 require __DIR__ . '/vendor/autoload.php';
     // Agrega credenciales
-    MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398");
+    MercadoPago\SDK::setAccessToken($_ENV['access_token']);
     MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
        $price = $_POST['price'];
@@ -42,19 +39,19 @@ require __DIR__ . '/vendor/autoload.php';
         "failure" => "https://mercado-pago-ecommerce.herokuapp.com/retorno.php?status=failure",
         "pending" => "https://mercado-pago-ecommerce.herokuapp.com/retorno.php?status=pending"
     );
+  
     $preference->auto_return = "approved";
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
     $item->title = "Dispositivo móvil de Tienda e-commerce";
-    $item->id = "1234";
-    $item->quantity = $unit;
-    $item->unit_price = $price;
-    $item->picture_url = $img;
-    $item->currency_id = "ARS";
+    $item->picture_url = $_POST['img'];
+    $item->title = $_POST['title'];
+    $item->quantity = $_POST['unit'];
+    $item->unit_price = $_POST['price'];
     $preference->items = array($item);
     $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/notificacion.php";
-    $preference->external_reference = "ABCD1234";
+    $preference->external_reference = "carlos.amrodri@gmail.com";
   
   
       //Excluyo medios de pago
@@ -187,24 +184,21 @@ require __DIR__ . '/vendor/autoload.php';
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $model ?></span>
+                                                    <span data-ase-truncate="2"><?php echo $_POST['title']; ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo $unit ?>
+                                            <?php echo $_POST['unit']; ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "$" . $price ?>
+                                            <?php echo "$ ".$_POST['price']; ?>
                                         </h3>
                                     </div>
-                                    <form action="/procesar-pago" method="POST" >
-                                        <script
-                                            src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                            data-preference-id="<?php echo $preference->id; ?>"  data-elements-color="#2D3277" data-button-label="Pagar la compra">
-                                        </script>
-                                    </form>
+                                    <a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
+
+             
                                     
                                 </div>
                             </div>
