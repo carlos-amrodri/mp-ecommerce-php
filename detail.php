@@ -19,13 +19,13 @@ require __DIR__ . '/vendor/autoload.php';
     $payer->name = "Lalo";
     $payer->surname = "Landa";
     $payer->email = "test_user_63274575@testuser.com";
+    $payer->identification = array(
+        "type" => "DNI",
+        "number" => "22333444"
+      );
     $payer->phone = array(
       "area_code" => "011",
       "number" => "2222-3333"
-    );
-    $payer->identification = array(
-      "type" => "DNI",
-      "number" => "22333444"
     );
     $payer->address = array(
       "street_name" => "False",
@@ -55,12 +55,17 @@ require __DIR__ . '/vendor/autoload.php';
   
   
       //Excluyo medios de pago
-      $preference->payment_methods = array(
+    $preference->payment_methods = array(
         "excluded_payment_methods" => array(array("id" => "amex")),
         "excluded_payment_types" => array(array("id" => "atm")),
         "installments" => 6);
     //Salvo las prefeencias
     $preference->save();
+
+    $cartel = "Maxi";
+
+error_log("*******Post********".print_r($cartel,true));
+error_log("*******Preference********".print_r($preference,true));
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
