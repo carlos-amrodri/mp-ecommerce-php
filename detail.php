@@ -1,8 +1,9 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
     // Agrega credenciales
-    MercadoPago\SDK::setAccessToken($_ENV['access_token']);
     MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+    MercadoPago\SDK::setPublicKey("APP_USR-7eb0138a-189f-4bec-87d1-c0504ead5626");
+    MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398");
 
        $price = $_POST['price'];
        $unit = $_POST['unit'];
@@ -19,6 +20,7 @@ require __DIR__ . '/vendor/autoload.php';
     $payer->name = "Lalo";
     $payer->surname = "Landa";
     $payer->email = "test_user_63274575@testuser.com";
+    $payer->id = "471923173";
     $payer->identification = array(
         "type" => "DNI",
         "number" => "22333444"
