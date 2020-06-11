@@ -38,9 +38,9 @@ require __DIR__ . '/vendor/autoload.php';
     $preference->payer = $payer;
     //Paginas de retorno luego de la tranasaccion 
     $preference->back_urls = array(
-        "success" => "https://mercado-pago-ecommerce.herokuapp.com/succes.php",
-        "failure" => "https://mercado-pago-ecommerce.herokuapp.com/failure.php",
-        "pending" => "https://mercado-pago-ecommerce.herokuapp.com/pending.php"
+        "success" => "https://mercado-pago-ecommerce.herokuapp.com/retorno.php?status=success",
+        "failure" => "https://mercado-pago-ecommerce.herokuapp.com/retorno.php?status=failure",
+        "pending" => "https://mercado-pago-ecommerce.herokuapp.com/retorno.php?status=pending"
     );
     $preference->auto_return = "approved";
 
