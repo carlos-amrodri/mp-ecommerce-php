@@ -22,7 +22,9 @@ $log->pushHandler(new StreamHandler('path/to/your.log', Logger::WARNING));
 $log->warning('Medio');
 $log->error('Esta es la prueba de notificaciones');
 
-error_log("hello, this is a test!");
+$cartel = "Maxi";
+
+error_log("*******Post********".print_r($cartel,true));
 
 ?>
 
