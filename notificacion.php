@@ -22,7 +22,7 @@ $log->pushHandler(new StreamHandler('path/to/your.log', Logger::WARNING));
 $log->warning('Medio');
 $log->error('Esta es la prueba de notificaciones');
 
-echo "<h1> Probando el log </h1>";
+error_log("hello, this is a test!");
 
 ?>
 
