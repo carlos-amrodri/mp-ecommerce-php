@@ -254,7 +254,7 @@
                                                 </h3>
                                             </div>
                                             <div class="as-price-currentprice as-producttile-currentprice">
-                                                $15.000
+                                                $15.00
                                             </div>
                                         </div>
                                         <form action="/detail.php" method="get">

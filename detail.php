@@ -2,7 +2,6 @@
 require __DIR__ . '/vendor/autoload.php';
     // Agrega credenciales
     MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398");
-    MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
     MercadoPago\SDK::setPublicKey("APP_USR-7eb0138a-189f-4bec-87d1-c0504ead5626");
 
 
@@ -47,11 +46,12 @@ require __DIR__ . '/vendor/autoload.php';
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item->title = "Dispositivo móvil de Tienda e-commerce";
-    $item->picture_url = $_POST['img'];
+    $item->picture_url = 'https://mercado-pago-ecommerce.herokuapp.com'.$_POST['img'];
     $item->title = $_POST['title'];
     $item->quantity = $_POST['unit'];
     $item->unit_price = $_POST['price'];
+    $item->currency_id = "ARS";
+    $item->description = "​Dispositivo móvil de Tienda e-commerce";
     $preference->items = array($item);
     $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/notificacion.php";
     $preference->external_reference = "carlos.amrodri@gmail.com";
@@ -64,11 +64,6 @@ require __DIR__ . '/vendor/autoload.php';
         "installments" => 6);
     //Salvo las prefeencias
     $preference->save();
-
-    $cartel = "Maxi";
-
-error_log("*******Post********".print_r($cartel,true));
-error_log("*******Preference********".print_r($preference,true));
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -204,7 +199,7 @@ error_log("*******Preference********".print_r($preference,true));
                                             <?php echo "$ ".$_POST['price']; ?>
                                         </h3>
                                     </div>
-                                    <a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
+                                    <a href="<?php echo $preference->init_point?>">Pagar la compra</a>
 
              
                                     
