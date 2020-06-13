@@ -47,19 +47,20 @@ $preference->back_urls = array(
     "pending" => "https://mercado-pago-ecommerce.herokuapp.com/retorno.php?status=pending"
 );
 
-$preference->auto_return = "approved";
+
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 $item->id = "1234";
 $item->description = "Dispositivo móvil de Tienda e-commerce";
-$item->picture_url = $_POST['img'];
+$item->picture_url = "https://mercado-pago-ecommerce.herokuapp.com".$_POST['img'];
 $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
 $preference->items = array($item);
 $preference->notification_url = 'https://mercado-pago-ecommerce.herokuapp.com/ipn.php';
-$preference->external_reference = "carlos.amrodri@gmail.com.ar";
+$preference->external_reference = 'carlos.amrodri@gmail.com';
+$preference->auto_return = "approved";
 
 $preference->payment_methods = array(
 "excluded_payment_methods" => array(array("id" => "amex")),

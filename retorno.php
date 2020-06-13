@@ -13,7 +13,7 @@ if(isset($_GET['collection_status'])){
     $ret = file_get_contents($cURL);
 
     $aDatos = json_decode($ret, true);
-
+    error_log("===========  Aprobado Datos json============== ".print_r($ret, true));
     $payment_method_id = $aDatos['payment_method_id'];
     $collection_id = $_GET['collection_id'];
     $payment_type = $_GET['payment_type'];
