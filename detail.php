@@ -227,7 +227,7 @@ error_log("===========  PREFERENCE  ============== ".print_r($preference, true))
         <div class="as-footnotes">
             <div class="as-footnotes-content">
                 <div class="as-footnotes-sosumi">
-                    Todos los derechos reservados Tienda Tecno <?=date("Y");?> - By Fernando Cuadrado - Transparent Web S.A.S.
+                    Todos los derechos reservados Tienda Tecno <?=date("Y");?> - By Rodiguez Carlos
                 </div>
             </div>
         </div>
