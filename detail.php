@@ -61,7 +61,6 @@ $preference->items = array($item);
 $preference->notification_url = 'https://mercado-pago-ecommerce.herokuapp.com/ipn.php';
 $preference->external_reference = 'carlos.amrodri@gmail.com';
 $preference->auto_return = "approved";
-
 $preference->payment_methods = array(
 "excluded_payment_methods" => array(array("id" => "amex")),
 "excluded_payment_types" => array(array("id" => "atm")),
