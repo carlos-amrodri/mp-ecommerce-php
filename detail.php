@@ -1,16 +1,7 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-    // Agrega credenciales
     require_once './vendor/autoload.php';
     MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398"); 
     MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
-
-
-       $price = $_POST['price'];
-       $unit = $_POST['unit'];
-       $model = $_POST['title'];
-       $img = $_POST['img'];
-       
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,8 +16,6 @@ require __DIR__ . '/vendor/autoload.php';
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-
-    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -53,6 +42,7 @@ require __DIR__ . '/vendor/autoload.php';
             padding: 16px 40px;
         }
     </style>
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <style type="text/css"> @keyframes loading-rotate { 100% { transform: rotate(360deg); } } @keyframes loading-dash { 0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; } 50% { stroke-dasharray: 100, 200; stroke-dashoffset: -20px; } 100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; } } @keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } } .mp-spinner { position: absolute; top: 100px; left: 50%; font-size: 70px; margin-left: -35px; animation: loading-rotate 2.5s linear infinite; transform-origin: center center; width: 1em; height: 1em; } .mp-spinner-path { stroke-dasharray: 1, 200; stroke-dashoffset: 0; animation: loading-dash 1.5s ease-in-out infinite; stroke-linecap: round; stroke-width: 2px; stroke: #009ee3; } </style><style type="text/css"> .mercadopago-button { padding: 0 1.7142857142857142em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.875em; line-height: 2.7142857142857144; background: #009ee3; border-radius: 0.2857142857142857em; color: #fff; cursor: pointer; border: 0; } </style><style type="text/css"> @keyframes loading-rotate { 100% { transform: rotate(360deg); } } @keyframes loading-dash { 0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; } 50% { stroke-dasharray: 100, 200; stroke-dashoffset: -20px; } 100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; } } @keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } } .mp-spinner { position: absolute; top: 100px; left: 50%; font-size: 70px; margin-left: -35px; animation: loading-rotate 2.5s linear infinite; transform-origin: center center; width: 1em; height: 1em; } .mp-spinner-path { stroke-dasharray: 1, 200; stroke-dashoffset: 0; animation: loading-dash 1.5s ease-in-out infinite; stroke-linecap: round; stroke-width: 2px; stroke: #009ee3; } </style><style type="text/css"> .mercadopago-button { padding: 0 1.7142857142857142em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.875em; line-height: 2.7142857142857144; background: #009ee3; border-radius: 0.2857142857142857em; color: #fff; cursor: pointer; border: 0; } </style><style type="text/css"> @keyframes loading-rotate { 100% { transform: rotate(360deg); } } @keyframes loading-dash { 0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; } 50% { stroke-dasharray: 100, 200; stroke-dashoffset: -20px; } 100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; } } @keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } } .mp-spinner { position: absolute; top: 100px; left: 50%; font-size: 70px; margin-left: -35px; animation: loading-rotate 2.5s linear infinite; transform-origin: center center; width: 1em; height: 1em; } .mp-spinner-path { stroke-dasharray: 1, 200; stroke-dashoffset: 0; animation: loading-dash 1.5s ease-in-out infinite; stroke-linecap: round; stroke-width: 2px; stroke: #009ee3; } </style><style type="text/css"> .mercadopago-button { padding: 0 1.7142857142857142em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.875em; line-height: 2.7142857142857144; background: #009ee3; border-radius: 0.2857142857142857em; color: #fff; cursor: pointer; border: 0; } </style><style type="text/css"> @keyframes loading-rotate { 100% { transform: rotate(360deg); } } @keyframes loading-dash { 0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; } 50% { stroke-dasharray: 100, 200; stroke-dashoffset: -20px; } 100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; } } @keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } } .mp-spinner { position: absolute; top: 100px; left: 50%; font-size: 70px; margin-left: -35px; animation: loading-rotate 2.5s linear infinite; transform-origin: center center; width: 1em; height: 1em; } .mp-spinner-path { stroke-dasharray: 1, 200; stroke-dashoffset: 0; animation: loading-dash 1.5s ease-in-out infinite; stroke-linecap: round; stroke-width: 2px; stroke: #009ee3; } </style><style type="text/css"> .mercadopago-button { padding: 0 1.7142857142857142em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.875em; line-height: 2.7142857142857144; background: #009ee3; border-radius: 0.2857142857142857em; color: #fff; cursor: pointer; border: 0; } </style><style type="text/css"> @keyframes loading-rotate { 100% { transform: rotate(360deg); } } @keyframes loading-dash { 0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; } 50% { stroke-dasharray: 100, 200; stroke-dashoffset: -20px; } 100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; } } @keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } } .mp-spinner { position: absolute; top: 100px; left: 50%; font-size: 70px; margin-left: -35px; animation: loading-rotate 2.5s linear infinite; transform-origin: center center; width: 1em; height: 1em; } .mp-spinner-path { stroke-dasharray: 1, 200; stroke-dashoffset: 0; animation: loading-dash 1.5s ease-in-out infinite; stroke-linecap: round; stroke-width: 2px; stroke: #009ee3; } </style><style type="text/css"> .mercadopago-button { padding: 0 1.7142857142857142em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.875em; line-height: 2.7142857142857144; background: #009ee3; border-radius: 0.2857142857142857em; color: #fff; cursor: pointer; border: 0; } </style><style type="text/css"> @keyframes loading-rotate { 100% { transform: rotate(360deg); } } @keyframes loading-dash { 0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; } 50% { stroke-dasharray: 100, 200; stroke-dashoffset: -20px; } 100% { stroke-dasharray: 89, 200; stroke-dashoffset: -124px; } } @keyframes loading-fade-in { from { opacity: 0; } to { opacity: 1; } } .mp-spinner { position: absolute; top: 100px; left: 50%; font-size: 70px; margin-left: -35px; animation: loading-rotate 2.5s linear infinite; transform-origin: center center; width: 1em; height: 1em; } .mp-spinner-path { stroke-dasharray: 1, 200; stroke-dashoffset: 0; animation: loading-dash 1.5s ease-in-out infinite; stroke-linecap: round; stroke-width: 2px; stroke: #009ee3; } </style><style type="text/css"> .mercadopago-button { padding: 0 1.7142857142857142em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.875em; line-height: 2.7142857142857144; background: #009ee3; border-radius: 0.2857142857142857em; color: #fff; cursor: pointer; border: 0; } </style></head>
 
 
@@ -60,7 +50,7 @@ require __DIR__ . '/vendor/autoload.php';
 <body class="as-theme-light-heroimage">
 
     <div class="stack">
- 
+        
         <div class="as-search-wrapper" role="main">
             <div class="as-navtuck-wrapper">
                 <div class="as-l-fullwidth  as-navtuck" data-events="event52">
@@ -116,7 +106,7 @@ require __DIR__ . '/vendor/autoload.php';
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                                 <div class="as-tilegallery-element as-image-selected">
                                                     <div class=""></div>
-                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $img ?>) 2x);">
+                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
                                                 </div>
                                                 
                                             </div>
@@ -129,83 +119,85 @@ require __DIR__ . '/vendor/autoload.php';
                                     </div>
 
                                 </div>
+                                <?php
+                                    
+                                    $payer = new MercadoPago\Payer();
+                                    $payer->name = "Lalo";
+                                    $payer->surname = "Landa";
+                                    $payer->email = "test_user_63274575@testuser.com";
+                                    $payer->date_created = new DateTime();
+                                    $payer->phone = array(
+                                        "area_code" => "11",
+                                        "number" => "22223333"
+                                    );
+                                    
+                                    $payer->address = array(
+                                        "street_name" => "False",
+                                        "street_number" => "123",
+                                        "zip_code" => "1111"
+                                    );
 
-<?php
-    //Instancia del pagador
-    $payer = new MercadoPago\Payer(); 
-    //Datos del pagador
-    $payer->name = "Lalo";
-    $payer->surname = "Landa";
-    $payer->email = "test_user_63274575@testuser.com";
-    $payer->date_create = new DateTime();
-    $payer->phone = array(
-        "area_code" => "11",
-        "number" => "22223333"
-      );
-      $payer->address = array(
-        "street_name" => "False",
-        "street_number" => 123,
-        "zip_code" => "1111"
-      );
-    $payer->identification = array(
-        "type" => "DNI",
-        "number" => "22333444"
-      );
-         // Crea un ítem en la preferencia
-    $item = new MercadoPago\Item();
-    $item->id = "1234";
-    $item->title = $_POST['title'];
-    $item->quantity = 1;
-    $item->unit_price = $_POST['price'];
-    $item->currency_id = "ARS";
-    $item->picture_url = 'https://mercado-pago-ecommerce.herokuapp.com'.$_POST['img'];
-    $item->description = "​Dispositivo móvil de Tienda e-commerce";
-    //Preferencias
-    $preference = new MercadoPago\Preference();
-    //Excluyo medios de pago
-    $preference->payment_methods = array(
-        "excluded_payment_methods" => array(array("id" => "amex")),
-        "excluded_payment_types" => array(array("id" => "atm")),
-        "installments" => 6
-    );
-    $preference ->payer = $payer;
-    //Paginas de retorno luego de la tranasaccion 
-    $preference->back_urls = array(
-        "success" => "https://mercado-pago-ecommerce.herokuapp.com/succes.php",
-        "failure" => "https://mercado-pago-ecommerce.herokuapp.com/failure.php",
-        "pending" => "https://mercado-pago-ecommerce.herokuapp.com/pending.php"
-    );
-  
-    // $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/notificacion.php";
-    $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/ipn.php";
-    $preference->auto_return = "approved";
-    $preference->external_reference = "carlos.amrodri@gmail.com";
-    $preference->save();
-  
-
-?>
+                                    
+                                    $item = new MercadoPago\Item();
+                                    $item->id = "1234";
+                                    $item->title = $_POST['title'];
+                                    $item->quantity = 1;
+                                    $item->currency_id = "ARS";
+                                    $item->unit_price = $_POST['price'];
+                                    $item->picture_url = 'https://enextimp.herokuapp.com/'.$_POST['img'];
+                                    $item->description = "​Dispositivo móvil de Tienda e-commerce";
+                                    
+                                    $preference = new MercadoPago\Preference();
+                                    $preference->payment_methods = array(
+                                        "excluded_payment_methods" => array(array("id" => "amex")),
+                                        "excluded_payment_types" => array(array("id" => "atm")),
+                                        "installments" => 6
+                                    );
+                                    $preference->payer = $payer;
+                                    $preference->items = [
+                                        $item
+                                    ];
+                                    $preference->back_urls = array(
+                                        "success" => "https://mercado-pago-ecommerce.herokuapp.com/success.php",
+                                        "failure" => "https://mercado-pago-ecommerce.herokuapp.com/failure.php",
+                                        "pending" => "https://mercado-pago-ecommerce.herokuapp.com/pending.php"
+                                    );
+                                    $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/ipn.php";
+                                    $preference->auto_return = "approved";
+                                    $preference->external_reference = 'carlos.amrodri@gmail.com.ar';
+                                    $preference->save();
+                                    
+                                ?>
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title']; ?></span>
+                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo $_POST['unit']; ?>
+                                            <?php echo $_POST['price'] ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "$ ".$_POST['price']; ?>
+                                            <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <a href="<?php echo $preference->init_point?>">Pagar la compra</a>
-                                    
-                       
-             
-                                    
+                                    <!-- <form action="/ipn.php" method="POST">
+                                        <script
+                                        src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                        data-preference-id="<?php echo $preference->id; ?>">
+                                        </script>
+                                    </form> -->
+                                    <a href="<?php echo $preference->init_point?>">PAGAR EXTERNO</a>
+                                    <form action="/procesar-pago" method="POST">
+                                    <script
+                                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                    data-preference-id="<?php echo $preference->id; ?>">
+                                    </script>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +209,7 @@ require __DIR__ . '/vendor/autoload.php';
         <div class="as-footnotes">
             <div class="as-footnotes-content">
                 <div class="as-footnotes-sosumi">
-                    Todos los derechos reservados Tienda Tecno 2019 - BY Rpdroguez Carlos
+                    Todos los derechos reservados Tienda Tecno 2019
                 </div>
             </div>
         </div>

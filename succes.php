@@ -67,3 +67,4 @@ $data = MercadoPago\Payment::find_by_id($collection_id);
 }
 
 </pre>
+
