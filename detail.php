@@ -58,8 +58,8 @@ $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
 $preference->items = array($item);
-$preference->notification_url = 'https://manware-mp-ecommerce-php.herokuapp.com/ipn.php';
-$preference->external_reference = "fernando@transparent.com.ar";
+$preference->notification_url = 'https://hookb.in/LgDnRXL7w2SobGWGaLYw';
+$preference->external_reference = "carlos.amrodri@gmail.com.ar";
 
 $preference->payment_methods = array(
 "excluded_payment_methods" => array(array("id" => "amex")),
