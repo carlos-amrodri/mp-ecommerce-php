@@ -67,6 +67,7 @@ $preference->payment_methods = array(
 "installments" => 6);
 
 $preference->save();
+error_log("===========  PREFERENCE  ============== ".print_r($preference, true));
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
