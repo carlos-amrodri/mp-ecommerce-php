@@ -133,7 +133,7 @@ if(isset($_GET['collection_status'])){
         <div class="as-footnotes">
             <div class="as-footnotes-content">
                 <div class="as-footnotes-sosumi">
-                    Todos los derechos reservados Tienda Tecno <?=date("Y");?> - by Fernando Cuadrado - fernando@transparent.com.ar
+                    Todos los derechos reservados Tienda Tecno <?=date("Y");?> - by Rodriguez Carlos
                 </div>
             </div>
         </div>
