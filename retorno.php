@@ -5,8 +5,9 @@ if(isset($_GET['collection_status'])){
 
     error_log("===========  Aprobado  ============== ".print_r($_POST, true));
     error_log("===========  Aprobado Get ============== ".print_r($_GET, true));
-    $token = $_ENV['access_token'];
+    $token = "APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398";
     $id = $_GET['collection_id'];
+    error_log("===========  Aprobado Datos id============== ".print_r($id, true));
     $cURL = "https://api.mercadopago.com/v1/payments/{$id}?access_token={$token}";
 
     $ret = file_get_contents($cURL);
