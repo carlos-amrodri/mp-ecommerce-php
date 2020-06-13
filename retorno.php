@@ -1,10 +1,10 @@
 <?php
-if(isset($_GET['status'])){
+if(isset($_GET['collection_status'])){
   $mensaje = "";
-  if($_GET['status'] == 'approved'){
+  if($_GET['collection_status'] == 'approved'){
 
     $token = $_ENV['access_token'];
-    $id = $_GET['id'];
+    $id = $_GET['collection_id'];
     $cURL = "https://api.mercadopago.com/v1/payments/{$id}?access_token={$token}";
 
     $ret = file_get_contents($cURL);
@@ -12,7 +12,7 @@ if(isset($_GET['status'])){
     $aDatos = json_decode($ret, true);
 
     $payment_method_id = $aDatos['payment_method_id'];
-    $collection_id = $_GET['id'];
+    $collection_id = $_GET['collection_id'];
     $payment_type = $_GET['payment_type'];
     $total = $aDatos['transaction_details']['total_paid_amount'];
 
@@ -24,10 +24,10 @@ if(isset($_GET['status'])){
       4) Total: $ ".$total;
 
   }
-  if($_GET['status'] == 'failure'){
+  if($_GET['collection_status'] == 'failure'){
     $mensaje = "Tu pago ha sido rechazado.";
   }
-  if(($_GET['status'] == 'pending') || ($_GET['collection_status'] == 'in_process')){
+  if(($_GET['collection_status'] == 'pending') || ($_GET['collection_status'] == 'in_process')){
     $mensaje = "Tu pago está pendiente.";
   }
 } else {
@@ -130,53 +130,10 @@ if(isset($_GET['status'])){
         <div class="as-footnotes">
             <div class="as-footnotes-content">
                 <div class="as-footnotes-sosumi">
-                    Todos los derechos reservados Tienda Tecno <?=date("Y");?> - by Rodriguez Carlos
+                    Todos los derechos reservados Tienda Tecno <?=date("Y");?> - by Fernando Cuadrado - fernando@transparent.com.ar
                 </div>
             </div>
         </div>
-<?php 
-
-require_once './vendor/autoload.php';
-                                    
-MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398"); 
-MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
-
-$collection_id = $_GET['collection_id'];
-$collection_status = $_GET['collection_status'];
-$external_reference = $_GET['external_reference'];
-$payment_type = $_GET['payment_type'];
-$preference_id = $_GET['preference_id'];
-$site_id = $_GET['site_id'];
-$processing_mode = $_GET['processing_mode'];
-$merchant_account_id = $_GET['merchant_account_id'];
-$data = MercadoPago\Payment::find_by_id($collection_id);
-// var_dump($data);
-?>
-
-<h1>El pago haya sido exitoso.</h1>
-
-<table>
-    <tr>
-      <td>payment_method_id</td>
-      <td><?php echo $data->payment_method_id ?></td>
-    </tr>
-    <tr>
-      <td>payment_type_id</td>
-      <td><?php echo $data->payment_type_id ?></td>
-    </tr>
-    <tr>
-      <td>payment_method_reference_id</td>
-      <td><?php echo $data->transaction_details->payment_method_reference_id ?></td>
-    </tr>
-    <tr>
-      <td>external_reference</td>
-      <td><?php echo $external_reference ?></td>
-    </tr>
-    <tr>
-      <td>payment_id o collection_id</td>
-      <td><?php echo $collection_id ?></td>
-    </tr>
-</table>
 
 </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div id="ac-gn-viewport-emitter"> </div>
 </body>
