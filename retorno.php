@@ -1,10 +1,10 @@
 <?php
-if(isset($_GET['collection_status'])){
+if(isset($_GET['status'])){
   $mensaje = "";
-  if($_GET['collection_status'] == 'approved'){
+  if($_GET['status'] == 'approved'){
 
     $token = $_ENV['access_token'];
-    $id = $_GET['collection_id'];
+    $id = $_GET['id'];
     $cURL = "https://api.mercadopago.com/v1/payments/{$id}?access_token={$token}";
 
     $ret = file_get_contents($cURL);
@@ -12,7 +12,7 @@ if(isset($_GET['collection_status'])){
     $aDatos = json_decode($ret, true);
 
     $payment_method_id = $aDatos['payment_method_id'];
-    $collection_id = $_GET['collection_id'];
+    $collection_id = $_GET['id'];
     $payment_type = $_GET['payment_type'];
     $total = $aDatos['transaction_details']['total_paid_amount'];
 
@@ -24,10 +24,10 @@ if(isset($_GET['collection_status'])){
       4) Total: $ ".$total;
 
   }
-  if($_GET['collection_status'] == 'failure'){
+  if($_GET['status'] == 'failure'){
     $mensaje = "Tu pago ha sido rechazado.";
   }
-  if(($_GET['collection_status'] == 'pending') || ($_GET['collection_status'] == 'in_process')){
+  if(($_GET['status'] == 'pending') || ($_GET['collection_status'] == 'in_process')){
     $mensaje = "Tu pago está pendiente.";
   }
 } else {
@@ -134,7 +134,7 @@ if(isset($_GET['collection_status'])){
                 </div>
             </div>
         </div>
-        <?php 
+<?php 
 
 require_once './vendor/autoload.php';
                                     
@@ -150,7 +150,7 @@ $site_id = $_GET['site_id'];
 $processing_mode = $_GET['processing_mode'];
 $merchant_account_id = $_GET['merchant_account_id'];
 $data = MercadoPago\Payment::find_by_id($collection_id);
-var_dump($data);
+// var_dump($data);
 ?>
 
 <h1>El pago haya sido exitoso.</h1>

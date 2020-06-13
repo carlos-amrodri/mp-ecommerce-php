@@ -53,7 +53,8 @@ require __DIR__ . '/vendor/autoload.php';
     $item->currency_id = "ARS";
     $item->description = "​Dispositivo móvil de Tienda e-commerce";
     $preference->items = [$item];
-    $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/notificacion.php";
+    // $preference->notification_url = "https://mercado-pago-ecommerce.herokuapp.com/notificacion.php";
+    $preference->notification_url = "https://hookb.in/LgDnRXL7w2SobGWGaLYw";
     $preference->external_reference = "carlos.amrodri@gmail.com";
   
   
