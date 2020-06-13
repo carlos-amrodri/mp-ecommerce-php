@@ -243,7 +243,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="as-producttile-info" style="min-height: 168px;">
+                                    <div class="as-producttile-info" style="min-height: 168px;" >
                                         <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                             <div class="as-producttile-title">
                                                 <h3 class="as-producttile-name">
